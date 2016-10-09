@@ -1,0 +1,2 @@
+# SSD
+## (Self Schedule Discipliner)
