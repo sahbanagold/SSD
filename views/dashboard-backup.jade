@@ -42,7 +42,7 @@ html(lang='en')
           a.menu-toggle(href='#')
             i.zmdi.zmdi-menu
           a.logo(href='index.html')
-            img(src='img/logo.png', alt='Logo Pacificonis')
+            img(src='http://sahbanagold.herokuapp.com/images/logo.png', alt='Logo SSD' style='width: 100%; margin-left:-30px;')
           a.icon-logo(href='index.html')
         .navbar-container.clearfix
           .pull-left
@@ -120,7 +120,7 @@ html(lang='en')
           li.profile-sidebar-container
             .profile-sidebar.text-center
               .profile-userpic
-                img.img-responsive.img-circle.center-block(src='img/profile_user.jpg', alt='user')
+                img.img-responsive.img-circle.center-block(src='https://pbs.twimg.com/profile_images/780655247337271296/uJY4dAJp_normal.jpg', alt='user')
                 span.online
               .profile-usertitle
                 .name
@@ -754,17 +754,17 @@ html(lang='en')
                 input#horizontal-menu(type='checkbox', disabled='')
                 i
         button#reset-local.btn.btn-block.btn-warning.raised.m-t-40(type='button') Reset
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/jquery/dist/jquery.min.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/bootstrap/dist/js/bootstrap.min.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/metisMenu/dist/metisMenu.min.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/Waves/dist/waves.min.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/toastr/toastr.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/moment/min/moment.min.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/fullcalendar/dist/fullcalendar.min.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/js/jqueri_ui_custom/jquery-ui.min.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/js/common.js')
-    script(src='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/js/demo-switch.js')
+    script(src='/js/jquery.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/metisMenu.min.js')
+    script(src='/js/jquery.mCustomScrollbar.js')
+    script(src='/js/waves.min.js')
+    script(src='/js/toastr.js')
+    script(src='/js/moment.min.js')
+    script(src='/js/fullcalendar.min.js')
+    script(src='/js/jquery-ui.min.js')
+    script(src='/js/common.js')
+    script(src='/js/demo-switch.js')
     script.
       $(function () {
       $(".event-tag span").click(function () {
