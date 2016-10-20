@@ -1,0 +1,930 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='msapplication-tap-highlight', content='no')
+    // Chrome, Firefox OS and Opera
+    meta(name='theme-color', content='#3f51b5')
+    // Windows Phone
+    meta(name='msapplication-navbutton-color', content='#3f51b5')
+    // iOS Safari
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+    title Pacificonis - Calendar
+    link("href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade|Luckiest+Guy|Monoton" rel="stylesheet")
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='stylesheets/material-design-iconic-font.min.css')
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/animate.css/animate.min.css')
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/metisMenu/dist/metisMenu.min.css')
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/Waves/dist/waves.min.css')
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/toastr/toastr.css')
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/fullcalendar/dist/fullcalendar.min.css')
+    link(rel='stylesheet', href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/css/style.css')
+    //
+      <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    //if lt IE 9
+      script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/html5shiv/dist/html5shiv.min,js')
+      script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/respondJs/dest/respond.min.js')
+  body.fixed-all.boxed-layout.fixed-sidebar
+    // Preloader
+    #preloader
+      .refresh-preloader
+        .preloader
+          i .
+          i .
+          i .
+    .wrapper
+      nav.navbar.navbar-indigo
+        .navbar-header.container.brand-orange
+          a.menu-toggle(href='#')
+            i.zmdi.zmdi-menu
+          a.logo(href='index.html')
+            img(src='img/logo.png', alt='Logo Pacificonis')
+          a.icon-logo(href='index.html')
+        .navbar-container.clearfix
+          .pull-left
+            a.page-title.text-uppercase(href='#') Calendar
+          .pull-right
+            .pull-left.search-container
+              form.searchbox
+                input.searchbox-input(type='search', placeholder='Search', name='search')
+                input.searchbox-submit(type='submit', value='')
+                span.searchbox-icon
+                  span.zmdi.zmdi-search.search-icon
+            ul.nav.pull-right.right-menu
+              li.more-options.dropdown
+                a.dropdown-toggle(data-toggle='dropdown')
+                  i.zmdi.zmdi-account-circle
+                .more-opt-container.dropdown-menu
+                  a(href='#')
+                    i.zmdi.zmdi-account-o
+                    | Account
+                    span.badge.badge-warning 3
+                  a(href='#')
+                    i.zmdi.zmdi-storage
+                    | Storage
+                    span.badge.badge-danger 2
+                  a(href='#')
+                    i.zmdi.zmdi-calendar-note
+                    | Calendar
+                    span.badge.badge-success 2
+                  a(href='#')
+                    i.zmdi.zmdi-chart-donut
+                    | Analytics
+                    span.badge.badge-success 7
+                  a(href='#')
+                    i.zmdi.zmdi-balance
+                    | Balance
+                    span.badge.badge-info 5
+                  a(href='#')
+                    i.zmdi.zmdi-run
+                    | Exit
+              li.notification.dropdown
+                a.dropdown-toggle
+                  i.zmdi.zmdi-notifications
+                  span.badge.badge-primary 8
+                .dropdown-menu
+                  h4.text-center.info-color.m-0 You have 19 new notifications
+                  .notification-container
+                    a(href='#')
+                      i.zmdi.zmdi-email.warning-color.m-r-5
+                      |  You have 16 messages
+                      span.pull-right 4 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-twitter.info-color.m-r-5
+                      |  3 new followers
+                      span.pull-right 12 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-dropbox.info-color.m-r-5
+                      |  7 changed files
+                      span.pull-right 18 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-instagram.warning-color.m-r-5
+                      |  26 new followers
+                      span.pull-right 22 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-twitter.info-color.m-r-5
+                      |  8 new followers
+                      span.pull-right 23 minutes ago
+                  a.text-uppercase.clear-all(href='#') Clear all notifications
+                  .check-ok
+                    i.zmdi.zmdi-check
+              li
+                a.sidepanel-toggle(href='#')
+                  i.zmdi.zmdi-more-vert
+      aside.sidebar
+        ul.nav.metismenu
+          li.profile-sidebar-container
+            .profile-sidebar.text-center
+              .profile-userpic
+                img.img-responsive.img-circle.center-block(src='img/profile_user.jpg', alt='user')
+                span.online
+              .profile-usertitle
+                .name
+                  | Marcus Doe
+                .city
+                  i.zmdi.zmdi-pin
+                  | San Francisco, CA
+              .profile-activity.clearfix
+                .pull-left
+                  | Photos
+                  br
+                  span 56
+                .pull-right
+                  | Videos
+                  br
+                  span 18
+          li
+            a(href='#')
+              i.zmdi.zmdi-view-dashboard
+              | Dashboard
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Dashboard
+              li
+                a(href='index.html') Dashboard v1
+              li
+                a(href='dashboard-2.html') Dashboard v2
+              li
+                a(href='dashboard-3.html') Dashboard v3
+              li
+                a(href='dashboard-4.html') Dashboard v4
+          li
+            a(href='#')
+              i.zmdi.zmdi-view-compact
+              | Layouts
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Layouts
+              li
+                a(href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l1/index_r.html') Three Column Layout
+              li
+                a(href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l2/index_r.html') Boxed Layout
+              li
+                a(href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/index_r.html') Fixed Menu&Boxed Layout
+              li
+                a(href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l4/index_r.html') Fixed Sidebar
+              li
+                a(href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l5/index_r.html') Vertical Icon Menu
+              li
+                a(href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l6/index_r.html') Horizontal Icon Menu
+              li
+                a(href='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l7/index_r.html') Default Layout
+          li
+            a(href='#')
+              i.zmdi.zmdi-google-pages
+              | Pages
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Pages
+              li
+                a(href='article.html') Article
+              li
+                a(href='coming-soon.html') Coming Soon
+              li
+                a(href='confirm-email.html') Confirm Email
+              li
+                a(href='contacts.html') Contacts
+              li
+                a(href='faq-page.html') FAQ
+              li
+                a(href='file-upload.html') File Upload
+              li
+                a(href='idle-timer.html') Idle Timer
+              li
+                a(href='image-slider.html') Image Slider
+              li
+                a(href='lock-screen.html') Lock Screen
+              li
+                a(href='login.html') Login
+              li
+                a(href='registration.html') Registration
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='maps.html') Maps
+              li
+                a(href='nestable.html') Nestable Lists
+              li
+                a(href='projects.html') Projects
+              li
+                a(href='resizable-panels.html') Resizable Panels
+              li
+                a(href='draggable-panels.html') Draggable panels
+              li
+                a(href='search.html') Search Results
+              li
+                a(href='tour-page.html') Tour
+              li
+                a(href='vote-list.html') Vote list
+              li
+                a(href='widgets.html') Widgets
+          li
+            a(href='#')
+              i.zmdi.zmdi-flower
+              | UI Kits
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title UI Kits
+              li
+                a(href='animation.html') Animations
+              li
+                a(href='box-shadow.html') Box-shadow
+              li
+                a(href='breadcrumbs.html') Breadcrumbs
+              li
+                a(href='buttons.html') Buttons
+              li
+                a(href='typography.html') Typography
+              li
+                a(href='checkboxes-radio.html') Checkboxes & Radio
+              li
+                a(href='checkboxes-radio-material.html') Checkboxes & Radio Material
+              li
+                a(href='labels-badges.html') Labels & Badges
+              li
+                a(href='colors.html') Colors
+              li
+                a(href='ui-colors.html') UI Colors
+              li
+                a(href='components.html') Components
+              li
+                a(href='dropdowns.html') Dropdowns
+              li
+                a(href='grids.html') Grids
+              li
+                a(href='media.html') Media
+              li
+                a(href='progressbars.html') Progressbars
+              li
+                a(href='tabs.html') Tabs
+              li
+                a(href='ui-material-icons.html') Material Icons
+              li
+                a(href='ui-cards.html') Ui Cards
+              li
+                a(href='ui-treeview.html') Tree View
+              li
+                a(href='ui-range-slider.html') Range Slider
+          li
+            a(href='#')
+              i.zmdi.zmdi-comment-text-alt
+              | Forms
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Forms
+              li
+                a(href='form-elements.html') Form Elements
+              li
+                a(href='form-elements-material.html') Form Elements Material
+              li
+                a(href='form-components.html') Form Components
+              li
+                a(href='form-examples.html') Form Examples
+              li
+                a(href='form-wizard.html') Form Wizard
+              li
+                a(href='form-wysiwig.html') Form Wysiwig
+              li
+                a(href='x-editable.html') X-Editable
+          li
+            a(href='#')
+              i.zmdi.zmdi-border-all
+              | Tables
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Tables
+              li
+                a(href='tables.html') Tables
+              li
+                a(href='datatables.html') Data Tables
+              li
+                a(href='tables-editable.html') Editable Tables
+          li
+            a(href='#')
+              i.zmdi.zmdi-chart
+              | Charts
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Charts
+              li
+                a(href='chartjs.html') Chart.js
+              li
+                a(href='morrisjs.html') Morris.js
+              li
+                a(href='flot-chart.html') Flot Chart
+          li
+            a(href='#')
+              i.zmdi.zmdi-money
+              | E-commerce
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title E-commerce
+              li
+                a(href='cart.html') Cart
+              li
+                a(href='clients.html') Clients
+              li
+                a(href='create-order.html') Create Order
+              li
+                a(href='invoice-list.html') Invoice list
+              li
+                a(href='invoice-details.html') Invoice Details
+              li
+                a(href='payments.html') Payments
+              li
+                a(href='pricing-tables.html') Pricing Tables
+              li
+                a(href='products-page.html') Products Page
+              li
+                a(href='product-view.html') Product View
+              li
+                a(href='search-products.html') Search Products
+          li
+            a(aria-expanded='false', href='#')
+              i.zmdi.zmdi-apps
+              | Apps
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse(aria-expanded='false')
+              li.inside-title Apps
+              li
+                a(href='calendar.html') Calendar
+              li
+                a(href='chat.html') Chat
+              li
+                a(href='file-manager.html') File Manager
+              li
+                a(href='issue-list.html') Issue List
+              li
+                a(href='timeline.html') Timeline
+              li.menu-child
+                a(aria-expanded='false', href='#')
+                  i.zmdi.zmdi-email
+                  | Mailbox
+                  span.zmdi.arrow
+                ul.nav.nav-inside.collapse(aria-expanded='false')
+                  li.inside-title Mailbox
+                  li
+                    a(href='email-inbox.html') Email Inbox
+                  li
+                    a(href='email-view.html') Email View
+                  li
+                    a(href='email-compose.html') Email Compose
+                  li
+                    a(href='email-templates.html') Email Templates
+              li.menu-child
+                a(aria-expanded='false', href='#')
+                  i.zmdi.zmdi-format-list-numbered
+                  | Tasks
+                  span.zmdi.arrow
+                ul.nav.nav-inside.collapse(aria-expanded='false')
+                  li.inside-title Tasks
+                  li
+                    a(href='task-list.html') Task List
+                  li
+                    a(href='task-detail.html') Task Detail
+                  li
+                    a(href='taskboard.html') Taskboard
+          li
+            a(href='#')
+              i.zmdi.zmdi-notifications
+              | Notifications
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Notifications
+              li
+                a(href='notifications.html') Notifications
+              li
+                a(href='modals.html') Modals
+              li
+                a(href='sweet-alerts.html') Sweet-alerts
+              li
+                a(href='toastr-notifications.html') Toastr
+          li
+            a(href='#')
+              i.zmdi.zmdi-alert-circle
+              | Error pages
+              span.zmdi.arrow
+            ul.nav.nav-inside.collapse
+              li.inside-title Error pages
+              li
+                a(href='400.html') 400
+              li
+                a(href='401.html') 401
+              li
+                a(href='403.html') 403
+              li
+                a(href='404.html') 404
+              li
+                a(href='500.html') 500
+              li
+                a(href='503.html') 503
+          li
+            a(href='starter-page.html')
+              i.zmdi.zmdi-copy
+              | Starter Page
+      .side-panel
+        ul.nav.nav-tabs.nav-justified.m-0
+          li.active
+            a(href='#tab-side-1', data-toggle='tab')
+              i.zmdi.zmdi-comment-text
+          li
+            a(href='#tab-side-2', data-toggle='tab')
+              i.zmdi.zmdi-settings
+        .tab-content
+          #tab-side-1.tab-pane.fade.in.active
+            .side-title Activities
+            .p-15
+              ul.timeline
+                li
+                  .timeline-icon.primary-bg
+                    i.zmdi.zmdi-plus
+                  .timeline-body
+                    .timeline-header
+                      span.author Jana Pena is now Follwing you
+                      span.date 2 min ago
+                li
+                  .timeline-icon.success-bg
+                    i.zmdi.zmdi-favorite
+                  .timeline-body
+                    .timeline-header
+                      span.author Helen likes your photo
+                      span.date 23 min ago
+                li
+                  .timeline-icon.warning-bg
+                    i.zmdi.zmdi-email
+                  .timeline-body
+                    .timeline-header
+                      span.author Colin send email
+                      span.date 34 min ago
+                li
+                  .timeline-icon.success-bg
+                    i.zmdi.zmdi-coffee
+                  .timeline-body
+                    .timeline-header
+                      span.author Starbucks invites you
+                      span.date 44 min ago
+                li
+                  .timeline-icon.info-bg
+                    i.zmdi.zmdi-videocam
+                  .timeline-body
+                    .timeline-header
+                      span.author Peter added new video
+                      span.date 56 min ago
+            .side-title Contacts
+            .p-15
+              ul.media-list.side-contacts
+                li.media.notification-message
+                  .media-left
+                    img.img-circle.avatar(src='img/contacts/3.png', alt='user')
+                  .media-body
+                    span Katerina Dankovich
+                    br
+                    span.contact-status.text-success Online
+                li.media.notification-message
+                  .media-left
+                    img.img-circle.avatar(src='img/contacts/4.png', alt='user')
+                  .media-body
+                    span Helen Doe
+                    br
+                    span.contact-status.text-warning Away
+                li.media.notification-message
+                  .media-left
+                    img.img-circle.avatar(src='img/contacts/2.png', alt='user')
+                  .media-body
+                    span Phil Simons
+                    br
+                    span.contact-status.text-success Online
+                li.media.notification-message
+                  .media-left
+                    img.img-circle.avatar(src='img/contacts/1.png', alt='user')
+                  .media-body
+                    span Peter Johnson
+                    br
+                    span.contact-status.text-muted Offline
+                li.media.notification-message
+                  .media-left
+                    img.img-circle.avatar(src='img/contacts/5.png', alt='user')
+                  .media-body
+                    span Kate Owl
+                    br
+                    span.contact-status.text-danger Busy
+          #tab-side-2.tab-pane.fade
+            table.table.table-settings
+              tbody
+                tr
+                  td
+                    h5 Alerts
+                    p Sets alerts to get notified when changes occur to get new alerming items
+                  td
+                    .checkbox.checkbox-primary
+                      label
+                        input(type='checkbox')
+                        i
+                tr
+                  td
+                    h5 Notifications
+                    p
+                      | You will receive notification email for any notifications if you set notification
+                  td
+                    .checkbox.checkbox-primary
+                      label
+                        input(type='checkbox', checked='')
+                        i
+                tr
+                  td
+                    h5 Messages
+                    p You will receive notification on email after setting messages notifications
+                  td
+                    .checkbox.checkbox-primary
+                      label
+                        input(type='checkbox')
+                        i
+                tr
+                  td
+                    h5 Warnings
+                    p You will get warnning only some specific setttings or alert system
+                  td
+                    .checkbox.checkbox-primary
+                      label
+                        input(type='checkbox', checked='')
+                        i
+                tr
+                  td
+                    h5 Sidebar
+                    p You can hide/show use with sidebar collapsw settings
+                  td
+                    .checkbox.checkbox-primary
+                      label
+                        input(type='checkbox', checked='')
+                        i
+      .container-fluid
+        .row
+          .col-lg-12
+            #external-events.content-box.external-events
+              .head.success-bg.clearfix
+                h5.content-title.pull-left Drag Events to Calendar
+                .functions-btns.pull-right
+                  a.refresh-btn(href='#')
+                    i.zmdi.zmdi-refresh
+                  a.fullscreen-btn(href='#')
+                    i.zmdi.zmdi-fullscreen
+                  a.close-btn(href='#')
+                    i.zmdi.zmdi-close
+              .content
+                .fc-event.primary-bg(data-bg='primary-bg')
+                  | Sport Match
+                  span.zmdi.zmdi-close.remove-event
+                .fc-event.success-bg(data-bg='success-bg')
+                  | Meeting
+                  span.zmdi.zmdi-close.remove-event
+                .fc-event.info-bg(data-bg='info-bg')
+                  | Relax
+                  span.zmdi.zmdi-close.remove-event
+                .fc-event.danger-bg(data-bg='danger-bg')
+                  | Family Time
+                  span.zmdi.zmdi-close.remove-event
+                .fc-event.warning-bg(data-bg='warning-bg')
+                  | Coffee
+                  span.zmdi.zmdi-close.remove-event
+        .row
+          .col-lg-12
+            #calendar.fc-calendar.shadow-1
+      footer.page-footer © 2016 Copyright
+    button.btn.btn-primary.btn-lg.icon.raised.demo-switcher(type='button')
+      i.zmdi.zmdi-settings
+    .demo-options
+      .demo-body
+        .option-title Brand
+        ul#demo-header-color.demo-color-list
+          li
+            span.brand-switcher.demo-cyan(data-addclass='brand-cyan')
+          li
+            span.brand-switcher.demo-light-blue(data-addclass='brand-light-blue')
+          li
+            span.brand-switcher.demo-blue(data-addclass='brand-blue')
+          li
+            span.brand-switcher.demo-indigo(data-addclass='brand-indigo')
+          li
+            span.brand-switcher.demo-deep-purple(data-addclass='brand-deep-purple')
+          li
+            span.brand-switcher.demo-purple(data-addclass='brand-purple')
+          li
+            span.brand-switcher.demo-pink(data-addclass='brand-pink')
+          li
+            span.brand-switcher.demo-red(data-addclass='brand-red')
+          li
+            span.brand-switcher.demo-teal(data-addclass='brand-teal')
+          li
+            span.brand-switcher.demo-green(data-addclass='brand-green')
+          li
+            span.brand-switcher.demo-light-green(data-addclass='brand-light-green')
+          li
+            span.brand-switcher.demo-orange(data-addclass='brand-orange')
+          li
+            span.brand-switcher.demo-deep-orange(data-addclass='brand-deep-orange')
+          li
+            span.brand-switcher.demo-bluegray(data-addclass='brand-bluegray')
+          li
+            span.brand-switcher.demo-gray(data-addclass='brand-gray')
+          li
+            span.brand-switcher.demo-default(data-addclass='brand-default')
+          li
+            span.brand-switcher.demo-bleachedcedar(data-addclass='brand-bleachedcedar')
+          li
+            span.brand-switcher.demo-brown(data-addclass='brand-brown')
+      .demo-body
+        .option-title Topnav
+        ul#demo-header-color.demo-color-list
+          li
+            span.topnav-switcher.demo-cyan(data-addclass='navbar-cyan')
+          li
+            span.topnav-switcher.demo-light-blue(data-addclass='navbar-light-blue')
+          li
+            span.topnav-switcher.demo-blue(data-addclass='navbar-blue')
+          li
+            span.topnav-switcher.demo-indigo(data-addclass='navbar-indigo')
+          li
+            span.topnav-switcher.demo-deep-purple(data-addclass='navbar-deep-purple')
+          li
+            span.topnav-switcher.demo-purple(data-addclass='navbar-purple')
+          li
+            span.topnav-switcher.demo-pink(data-addclass='navbar-pink')
+          li
+            span.topnav-switcher.demo-red(data-addclass='navbar-red')
+          li
+            span.topnav-switcher.demo-teal(data-addclass='navbar-teal')
+          li
+            span.topnav-switcher.demo-green(data-addclass='navbar-green')
+          li
+            span.topnav-switcher.demo-light-green(data-addclass='navbar-light-green')
+          li
+            span.topnav-switcher.demo-orange(data-addclass='navbar-orange')
+          li
+            span.topnav-switcher.demo-deep-orange(data-addclass='navbar-deep-orange')
+          li
+            span.topnav-switcher.demo-bluegray(data-addclass='navbar-bluegray')
+          li
+            span.topnav-switcher.demo-gray(data-addclass='navbar-gray')
+          li
+            span.topnav-switcher.demo-default(data-addclass='navbar-default')
+          li
+            span.topnav-switcher.demo-bleachedcedar(data-addclass='navbar-bleachedcedar')
+          li
+            span.topnav-switcher.demo-brown(data-addclass='navbar-brown')
+      .demo-body
+        .option-title Sidebar
+        ul#demo-sidebar-color.demo-color-list
+          li
+            span.leftbar-switcher.demo-cyan(data-addclass='sidebar-cyan')
+          li
+            span.leftbar-switcher.demo-light-blue(data-addclass='sidebar-light-blue')
+          li
+            span.leftbar-switcher.demo-blue(data-addclass='sidebar-blue')
+          li
+            span.leftbar-switcher.demo-indigo(data-addclass='sidebar-indigo')
+          li
+            span.leftbar-switcher.demo-deep-purple(data-addclass='sidebar-deep-purple')
+          li
+            span.leftbar-switcher.demo-purple(data-addclass='sidebar-purple')
+          li
+            span.leftbar-switcher.demo-pink(data-addclass='sidebar-pink')
+          li
+            span.leftbar-switcher.demo-red(data-addclass='sidebar-red')
+          li
+            span.leftbar-switcher.demo-teal(data-addclass='sidebar-teal')
+          li
+            span.leftbar-switcher.demo-green(data-addclass='sidebar-green')
+          li
+            span.leftbar-switcher.demo-light-green(data-addclass='sidebar-light-green')
+          li
+            span.leftbar-switcher.demo-orange(data-addclass='sidebar-orange')
+          li
+            span.leftbar-switcher.demo-deep-orange(data-addclass='sidebar-deep-orange')
+          li
+            span.leftbar-switcher.demo-bluegray(data-addclass='sidebar-bluegray')
+          li
+            span.leftbar-switcher.demo-gray(data-addclass='sidebar-gray')
+          li
+            span.leftbar-switcher.demo-default(data-addclass='sidebar-default')
+          li
+            span.leftbar-switcher.demo-bleachedcedar(data-addclass='sidebar-bleachedcedar')
+          li
+            span.leftbar-switcher.demo-brown(data-addclass='sidebar-brown')
+      .demo-body
+        .option-title Sidebar
+        ul.nav
+          li.layout-settings
+            | Fixed Menu
+            .checkbox.checkbox-danger.pull-right
+              label
+                input#fixed-menu(type='checkbox')
+                i
+          li.layout-settings
+            | Boxed Layout
+            .checkbox.checkbox-danger.pull-right
+              label
+                input#boxed-layout(type='checkbox')
+                i
+          li.layout-settings
+            | Fixed Sidebar
+            .checkbox.checkbox-danger.pull-right
+              label
+                input#fixed-sidebar(type='checkbox')
+                i
+          li.layout-settings
+            | Light Menu
+            .checkbox.checkbox-danger.pull-right
+              label
+                input#light-menu(type='checkbox')
+                i
+          li.layout-settings
+            | Icon Menu
+            .checkbox.checkbox-danger.pull-right
+              label
+                input#icon-menu(type='checkbox')
+                i
+          li.layout-settings
+            | Horizontal Icon Menu
+            .checkbox.checkbox-danger.pull-right
+              label
+                input#horizontal-menu(type='checkbox', disabled='')
+                i
+        button#reset-local.btn.btn-block.btn-warning.raised.m-t-40(type='button') Reset
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/jquery/dist/jquery.min.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/metisMenu/dist/metisMenu.min.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/Waves/dist/waves.min.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/toastr/toastr.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/moment/min/moment.min.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/fullcalendar/dist/fullcalendar.min.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/js/jqueri_ui_custom/jquery-ui.min.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/js/common.js')
+    script(src='http://91.234.35.26/pacificonis-admin/v1.0.0/land/l3/js/demo-switch.js')
+    script.
+      $(function () {
+      $(".event-tag span").click(function () {
+      $(".event-tag span").removeClass("selected");
+      $(this).addClass("selected");
+      });
+      $(document).on('click', '.remove-event', function (e) {
+      $(this).parent().remove();
+      });
+      /* initialize the external events */
+      $('#external-events .fc-event').each(function () {
+      // store data so the calendar knows to render an event upon drop
+      $(this).data('eventObject', {
+      title: $.trim($(this).text()),
+      className: $(this).attr("data-bg"), // use the element's text as the event title
+      stick: true // maintain when user navigates (see docs on the renderEvent method)
+      });
+      // make the event draggable using jQuery UI
+      $(this).draggable({
+      zIndex: 999,
+      revert: true, // will cause the event to go back to its
+      revertDuration: 0 //  original position after the drag
+      });
+      });
+      /* initialize the calendar */
+      var date = new Date();
+      var d = date.getDate();
+      var m = date.getMonth();
+      var y = date.getFullYear();
+      $('#calendar').fullCalendar({
+      header: {
+      left: 'prev, title, next',
+      right: 'today, month,agendaWeek,agendaDay'
+      },
+      //Add Events
+      events: [
+      {
+      title: 'Sport Match',
+      start: new Date(y, m, 1),
+      end: new Date(y, m, 3),
+      className: 'primary-bg'
+      },
+      {
+      title: 'Meeting',
+      start: new Date(y, m, 10),
+      className: 'success-bg'
+      },
+      {
+      title: 'Coffee',
+      start: new Date(y, m, 13),
+      className: 'warning-bg'
+      },
+      {
+      title: 'Meeting',
+      start: new Date(y, m, 13),
+      className: 'success-bg'
+      },
+      {
+      title: 'Family Time',
+      start: new Date(y, m, 15),
+      className: 'danger-bg'
+      },
+      {
+      title: 'Relax',
+      start: new Date(y, m, 18),
+      className: 'info-bg'
+      },
+      ],
+      editable: true,
+      eventLimit: true,
+      droppable: true, // this allows things to be dropped onto the calendar
+      drop: function (date, allDay) { // this function is called when something is dropped
+      // retrieve the dropped element's stored Event Object
+      var originalEventObject = $(this).data('eventObject');
+      // we need to copy it, so that multiple events don't have a reference to the same object
+      var copiedEventObject = $.extend({}, originalEventObject);
+      // assign it the date that was reported
+      copiedEventObject.start = date;
+      copiedEventObject.allDay = allDay;
+      // render the event on the calendar
+      // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+      $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+      // is the "remove after drop" checkbox checked?
+      if ($('#drop-remove').is(':checked')) {
+      // if so, remove the element from the "Draggable Events" list
+      $(this).remove();
+      }
+      }
+      });
+      $( ".fc-day-number" ).wrapInner( "<span></span>");
+      $( ".fc-toolbar" ).after("<img src='img/calendar/calendar.jpg' class='img-responsive' alt='calendar'/>");
+      /*Add new event*/
+      // Form to add new event
+      //      $("#add_event_form").on('submit', function (ev) {
+      //        ev.preventDefault();
+      //
+      //        var $event = $(this).find('.new-event-form'),
+      //          event_name = $event.val(),
+      //          tagColor = $('.event-tag  span.selected').attr('data-tag');
+      //
+      //        if (event_name.length >= 3) {
+      //
+      //          var newid = "new" + "" + Math.random().toString(36).substring(7);
+      //          // Create Event Entry
+      //          $("#external-events .mdl-checkbox").before(
+      //            '<div id="' + newid + '" class="fc-event ' + tagColor + '" data-bg="' + tagColor + '">' + event_name + '<span class="zmdi zmdi-close remove-event"></span></div>'
+      //          );
+      //
+      //
+      //          var eventObject = {
+      //            title: $.trim($("#" + newid).text()),
+      //            className: $("#" + newid).attr("data-bg"), // use the element's text as the event title
+      //            stick: true
+      //          };
+      //
+      //          // store the Event Object in the DOM element so we can get to it later
+      //          $("#" + newid).data('eventObject', eventObject);
+      //
+      //          // Reset draggable
+      //          $("#" + newid).draggable({
+      //            revert: true,
+      //            revertDuration: 0,
+      //            zIndex: 999
+      //          });
+      //
+      //          // Reset input
+      //          $event.val('').focus();
+      //        } else {
+      //          $event.focus();
+      //        }
+      //      });
+      });
+    script.
+      if($(window).width() >= 1200){
+      $("body").addClass("boxed-layout");
+      }
+      else{
+      $("body").removeClass("boxed-layout");
+      }
+      $(window).resize(function(){
+      if($(window).width() >= 1200){
+      $("body").addClass("boxed-layout");
+      }
+      else{
+      $("body").removeClass("boxed-layout");
+      }
+      });
+    script.
+      if($(window).width() >= 1200){
+      $("body").addClass("fixed-sidebar");
+      }
+      else{
+      $("body").removeClass("fixed-sidebar");
+      }
+      $(window).resize(function(){
+      if($(window).width() >= 1200){
+      $("body").addClass("fixed-sidebar");
+      }
+      else{
+      $("body").removeClass("fixed-sidebar");
+      }
+      });
