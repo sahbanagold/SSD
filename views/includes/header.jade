@@ -6,13 +6,15 @@ nav.navbar.navbar-default.navbar-static-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') Project name
+      a.navbar-brand(href='/') SSD
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
         li(class=(title == 'Home') ? 'active' : null)
           a(href='/') Home
         li(class=(title == 'Contact') ? 'active' : null)
           a(href='/contact') Contact
+        li(class=(title == 'Dashboard') ? 'active' : null)
+          a(href='/') Dashboard
       ul.nav.navbar-nav.navbar-right
         if user
           li.dropdown
