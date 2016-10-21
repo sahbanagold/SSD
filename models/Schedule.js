@@ -10,7 +10,7 @@ var schemaOptions = {
 };
 
 var scheduleSchema = new mongoose.Schema({
-  description: String,
+  agenda: String,
   begindate: Date,
   enddate: Date,
   beginhour: Number,

@@ -272,11 +272,11 @@ function report() {
 
   window.onload = function(){
     // $('#task').hide()
-    // $('#newagenda').hide()
+    $('#newagenda').hide()
     $('#totalsales').hide()
-    $('#bestseling').show()
+    $('#bestseling').hide()
     $('#bestselingbar').hide()
-    $('#bestselingpie').show()
+    $('#bestselingpie').hide()
     $('#currency').hide()
     $('#currencyorders').hide()
     $('#currencypayment').hide()
@@ -285,6 +285,29 @@ function report() {
       event.preventDefault()
 
       $('#taskcontent').prepend(`<div data-bg='primary-bg' class='fc-event primary-bg ui-draggable ui-draggable-handle'>${$("input[name='agenda']").val()}<span class='zmdi zmdi-close remove-event'></span></div>`)
+      $('#taskcontentup').prepend(`<div data-bg='primary-bg' class='fc-event primary-bg ui-draggable ui-draggable-handle'>${$("input[name='agenda']").val()}<span class='zmdi zmdi-close remove-event'></span></div>`)
+      $('#external-events .fc-event').each(function () {
+      // store data so the calendar knows to render an event upon drop
+      $(this).data('eventObject', {
+      title: $.trim($(this).text()),
+      className: $(this).attr("data-bg"), // use the element's text as the event title
+      stick: true // maintain when user navigates (see docs on the renderEvent method)
+      });
+      // make the event draggable using jQuery UI
+      $(this).draggable({
+      zIndex: 999,
+      revert: true, // will cause the event to go back to its
+      revertDuration: 0 //  original position after the drag
+      });
+      });
+      $.ajax({
+        type: 'POST',
+        url: '/api/schedule',
+        data: {agenda: $("input[name='agenda']").val(), begindate: $("input[name='begindate']").val(), enddate: $("input[name='enddate']").val(), beginhour: $("input[name='beginhour']").val(),endhour:$("input[name='endhour']").val(),status:$("input[name='status']").val()},
+        success: function(result){
+          console.log('data inserted')
+        }
+      })
     })
       var ctx = document.getElementById("chart-line").getContext("2d");
       var myLine = new Chart(ctx).Line(lineChartData, {

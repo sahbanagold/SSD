@@ -203,7 +203,7 @@ html(lang='en')
                   i.zmdi.zmdi-fullscreen
                 a.close-btn(href='#')
                   i.zmdi.zmdi-close
-            .content
+            .content#taskcontentup
               .fc-event.primary-bg(data-bg='primary-bg')
                 | Sport Match
                 span.zmdi.zmdi-close.remove-event
@@ -245,10 +245,10 @@ html(lang='en')
                   input.form-control(type='text', placeholder='Agenda Name', name='agenda')
                 .form-group
                   label.control-label Begin Date
-                  input.form-control(type='text', placeholder=new Date(), name='begindate')
+                  input.form-control(type='text', placeholder=new Date(), value=new Date(), name='begindate')
                 .form-group
                   label.control-label Finish Date
-                  input.form-control(type='text', placeholder=new Date(), name='enddate')
+                  input.form-control(type='text', placeholder=new Date(),value=new Date(), name='enddate')
                 .form-group
                   label.control-label Begin Hour
                   input.form-control(type='text', placeholder='13', name='beginhour')

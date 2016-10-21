@@ -18,7 +18,7 @@ var m = date.getMonth()+1;
 var y = date.getYear()+1900;
 console.log(d,m,y)
         let newSchedule = new   Schedule({
-            description: req.body.description,
+            agenda: req.body.agenda,
             begindate: req.body.begindate,
             enddate: req.body.enddate,
             beginhour: parseInt(req.body.beginhour),
