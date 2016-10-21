@@ -1,0 +1,81 @@
+body.fixed-all.boxed-layout.fixed-sidebar
+  // Preloader
+  #preloader
+    .refresh-preloader
+      .preloader
+        i .
+        i .
+        i .
+  .wrapper
+    nav.navbar.navbar-indigo
+      .navbar-container.clearfix
+        .pull-left
+          a.page-title.text-uppercase(href='#') SSD
+        .pull-right
+          .pull-left.search-container
+            form.searchbox
+              input.searchbox-input(type='search', placeholder='Search', name='search')
+              input.searchbox-submit(type='submit', value='')
+              span.searchbox-icon
+                span.zmdi.zmdi-search.search-icon
+          ul.nav.pull-right.right-menu
+            li.more-options.dropdown
+              a.dropdown-toggle(data-toggle='dropdown')
+                img(src='https://pbs.twimg.com/profile_images/780655247337271296/uJY4dAJp_normal.jpg' width='50px' height='50px' style='border-radius:100%')
+              .more-opt-container.dropdown-menu
+                a(href='#')
+                  i.zmdi.zmdi-account-o
+                  | Account
+                  span.badge.badge-warning 3
+                a(href='#')
+                  i.zmdi.zmdi-storage
+                  | Storage
+                  span.badge.badge-danger 2
+                a(href='#')
+                  i.zmdi.zmdi-calendar-note
+                  | Calendar
+                  span.badge.badge-success 2
+                a(href='#')
+                  i.zmdi.zmdi-chart-donut
+                  | Analytics
+                  span.badge.badge-success 7
+                a(href='#')
+                  i.zmdi.zmdi-balance
+                  | Balance
+                  span.badge.badge-info 5
+                a(href='#')
+                  i.zmdi.zmdi-run
+                  | Exit
+            li.notification.dropdown
+              a.dropdown-toggle
+                i.zmdi.zmdi-notifications
+                span.badge.badge-primary 8
+              .dropdown-menu
+                h4.text-center.info-color.m-0 You have 19 new notifications
+                .notification-container
+                  a(href='#')
+                    i.zmdi.zmdi-email.warning-color.m-r-5
+                    |  You have 16 messages
+                    span.pull-right 4 minutes ago
+                  a(href='#')
+                    i.zmdi.zmdi-twitter.info-color.m-r-5
+                    |  3 new followers
+                    span.pull-right 12 minutes ago
+                  a(href='#')
+                    i.zmdi.zmdi-dropbox.info-color.m-r-5
+                    |  7 changed files
+                    span.pull-right 18 minutes ago
+                  a(href='#')
+                    i.zmdi.zmdi-instagram.warning-color.m-r-5
+                    |  26 new followers
+                    span.pull-right 22 minutes ago
+                  a(href='#')
+                    i.zmdi.zmdi-twitter.info-color.m-r-5
+                    |  8 new followers
+                    span.pull-right 23 minutes ago
+                a.text-uppercase.clear-all(href='#') Clear all notifications
+                .check-ok
+                  i.zmdi.zmdi-check
+            li
+              a.sidepanel-toggle(href='#')
+                i.zmdi.zmdi-more-vert

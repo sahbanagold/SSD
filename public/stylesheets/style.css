@@ -8606,5 +8606,7 @@ body.n-blue-grey .searchbox-icon, body.n-blue-grey .searchbox-submit {
     display: inline-block;
   }
 }
-
+#task{
+  background-color: transparent;
+}
 /*# sourceMappingURL=maps/style.css.map */

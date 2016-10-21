@@ -10,6 +10,8 @@ var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var routes = require('./routes/index');
+var api = require('./routes/api');
 // Load environment variables from .env file
 dotenv.load();
 
@@ -29,6 +31,9 @@ mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
 });
+
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.set('port', process.env.PORT || 3000);
@@ -47,7 +52,8 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/', routes);
+app.use('/api', api);
 app.get('/',isLoggedIn, HomeController.index);
 app.get('/contact',isLoggedIn, contactController.contactGet);
 app.post('/contact', contactController.contactPost);

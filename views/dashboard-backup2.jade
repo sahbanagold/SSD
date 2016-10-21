@@ -13,7 +13,7 @@ html(lang='en')
   include includes/navbar
   aside.sidebar
     ul.nav.metismenu
-      li(onClick='task()')
+      li
         a(href='#')
           i.zmdi.zmdi-view-dashboard
           | Agenda
@@ -45,16 +45,7 @@ html(lang='en')
             a(href='#') By Rubi
           li
             a(href='#') By Haidar
-      li(onClick='newagenda()')
-        a(href='#')
-          i.zmdi.zmdi-view-compact
-          | Add New Agenda
-          span.zmdi.arrow
-      li(onClick='report()')
-        a(href='#')
-          i.zmdi.zmdi-view-compact
-          | Report
-          span.zmdi.arrow
+
   .side-panel
     ul.nav.nav-tabs.nav-justified.m-0
       li.active
@@ -233,24 +224,10 @@ html(lang='en')
                 .form-group
                   label.control-label Agenda
                   input.form-control(type='text', placeholder='Agenda Name', name='agenda')
-                .form-group
-                  label.control-label Begin Date
-                  input.form-control(type='text', placeholder=new Date(), name='begindate')
-                .form-group
-                  label.control-label Finish Date
-                  input.form-control(type='text', placeholder=new Date(), name='enddate')
-                .form-group
-                  label.control-label Begin Hour
-                  input.form-control(type='text', placeholder='13', name='beginhour')
-                .form-group
-                  label.control-label Finish Hour
-                  input.form-control(type='text', placeholder='17', name='endhour')
-                .form-group
-                  label.control-label Status
-                  input.form-control(type='text', placeholder='[done,undone,pending]', name='status')
+
 
                 .form-group
-                  button#btnadd.btn.btn-info.waves-effect(type='button') Add
+                  button.btn.btn-info.waves-effect(type='button') Add
         .col-md-6
           #external-events.content-box.external-events
             .head.success-bg.clearfix
@@ -262,7 +239,7 @@ html(lang='en')
                   i.zmdi.zmdi-fullscreen
                 a.close-btn(href='#')
                   i.zmdi.zmdi-close
-            .content#taskcontent
+            .content
               .fc-event.primary-bg(data-bg='primary-bg')
                 | Sport Match
                 span.zmdi.zmdi-close.remove-event
@@ -281,7 +258,7 @@ html(lang='en')
 
 
     #report
-      .row#totalsales
+      .row
         .col-lg-12
           .content-box
             .head.head-with-btns.clearfix
@@ -307,8 +284,8 @@ html(lang='en')
                     | Children goods
               .chartjs-container.full-page-chart
                 canvas#chart-line(width='1169', height='307', style='width: 1169px; height: 307px;')
-      .row#bestseling
-        .col-md-6#bestselingbar
+      .row
+        .col-md-6
           .content-box
             .head.head-with-btns.primary-bg.clearfix
               h5.content-title.pull-left Best selling products
@@ -350,7 +327,7 @@ html(lang='en')
                         | Watches
               // Used for demo purposes. Remove if it is needed
               .visible-lg.visible-md(style='height: 20px;')
-        .col-md-6#bestselingpie
+        .col-md-6
           .content-box
             .head.clearfix
               h5.content-title.text-color.pull-left Statistics order status
@@ -384,8 +361,8 @@ html(lang='en')
                 .col-sm-6
                   .chartjs-container
                     canvas#chart-pie(height='217', width='261', style='width: 261px; height: 217px;')
-      .row#currency
-        .col-md-4#currencypayment
+      .row
+        .col-md-4
           .content-box
             .head.clearfix
               h5.content-title.text-color.pull-left Using the methods of payment
@@ -406,7 +383,7 @@ html(lang='en')
             .content
               .chartjs-container
                 canvas#chart-radar(height='239', width='350', style='width: 350px; height: 239px;')
-        .col-md-4#currencyorders
+        .col-md-4
           .content-box
             .head.success-bg.clearfix
               h5.content-title.pull-left Statistics orders and returns
@@ -460,7 +437,7 @@ html(lang='en')
                 .col-sm-6
                   .chartjs-container
                     canvas#chart-pie-3(height='219', width='160', style='width: 160px; height: 219px;')
-      .row#compare
+      .row
         .col-lg-12
           .content-box
             .head.head-with-btns.clearfix

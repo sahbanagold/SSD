@@ -1,0 +1,343 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='msapplication-tap-highlight', content='no')
+    // Chrome, Firefox OS and Opera
+    meta(name='theme-color', content='#3f51b5')
+    // Windows Phone
+    meta(name='msapplication-navbutton-color', content='#3f51b5')
+    // iOS Safari
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+    title Self Schedule Discipliner
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/material-design-iconic-font.min.css')
+    link(rel='stylesheet', href='/stylesheets/animate.min.css')
+    link(rel='stylesheet', href='/stylesheets/metisMenu.min.css')
+    link(rel='stylesheet', href='/stylesheets/jquery.mCustomScrollbar.css')
+    link(rel='stylesheet', href='/stylesheets/waves.min.css')
+    link(rel='stylesheet', href='/stylesheets/toastr.css')
+    link(rel='stylesheet', href='/stylesheets/fullcalendar.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    //
+      <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    //if lt IE 9
+      script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/html5shiv/dist/html5shiv.min,js')
+      script(src='http://91.234.35.26/pacificonis-admin/v1.0.1/land/l1/bower_components/respondJs/dest/respond.min.js')
+  body.fixed-all.boxed-layout.fixed-sidebar
+    // Preloader
+    #preloader
+      .refresh-preloader
+        .preloader
+          i .
+          i .
+          i .
+    .wrapper
+      nav.navbar.navbar-indigo
+        .navbar-container.clearfix
+          .pull-left
+            a.page-title.text-uppercase(href='#') SSD
+          .pull-right
+            .pull-left.search-container
+              form.searchbox
+                input.searchbox-input(type='search', placeholder='Search', name='search')
+                input.searchbox-submit(type='submit', value='')
+                span.searchbox-icon
+                  span.zmdi.zmdi-search.search-icon
+            ul.nav.pull-right.right-menu
+              li.more-options.dropdown
+                a.dropdown-toggle(data-toggle='dropdown')
+                  i.zmdi.zmdi-account-circle
+                .more-opt-container.dropdown-menu
+                  a(href='#')
+                    i.zmdi.zmdi-account-o
+                    | Account
+                    span.badge.badge-warning 3
+                  a(href='#')
+                    i.zmdi.zmdi-storage
+                    | Storage
+                    span.badge.badge-danger 2
+                  a(href='#')
+                    i.zmdi.zmdi-calendar-note
+                    | Calendar
+                    span.badge.badge-success 2
+                  a(href='#')
+                    i.zmdi.zmdi-chart-donut
+                    | Analytics
+                    span.badge.badge-success 7
+                  a(href='#')
+                    i.zmdi.zmdi-balance
+                    | Balance
+                    span.badge.badge-info 5
+                  a(href='#')
+                    i.zmdi.zmdi-run
+                    | Exit
+              li.notification.dropdown
+                a.dropdown-toggle
+                  i.zmdi.zmdi-notifications
+                  span.badge.badge-primary 8
+                .dropdown-menu
+                  h4.text-center.info-color.m-0 You have 19 new notifications
+                  .notification-container
+                    a(href='#')
+                      i.zmdi.zmdi-email.warning-color.m-r-5
+                      |  You have 16 messages
+                      span.pull-right 4 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-twitter.info-color.m-r-5
+                      |  3 new followers
+                      span.pull-right 12 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-dropbox.info-color.m-r-5
+                      |  7 changed files
+                      span.pull-right 18 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-instagram.warning-color.m-r-5
+                      |  26 new followers
+                      span.pull-right 22 minutes ago
+                    a(href='#')
+                      i.zmdi.zmdi-twitter.info-color.m-r-5
+                      |  8 new followers
+                      span.pull-right 23 minutes ago
+                  a.text-uppercase.clear-all(href='#') Clear all notifications
+                  .check-ok
+                    i.zmdi.zmdi-check
+              li
+                a.sidepanel-toggle(href='#')
+                  i.zmdi.zmdi-more-vert
+    .container-fluid
+      .row
+        .col-md-6
+          .content-box
+            .head.success-bg.clearfix
+              h5.content-title.pull-left Basic example
+              .functions-btns.pull-right
+                a.refresh-btn(href='#')
+                  i.zmdi.zmdi-refresh
+                a.fullscreen-btn(href='#')
+                  i.zmdi.zmdi-fullscreen
+                a.close-btn(href='#')
+                  i.zmdi.zmdi-close
+            .content
+              p Basic styling for your forms
+              form
+                .form-group
+                  label.control-label Username
+                  input.form-control(type='text', placeholder='Username')
+                .form-group
+                  label.control-label Email
+                  input.form-control(type='email', placeholder='Email')
+                .form-group
+                  .checkbox.checkbox-info
+                    label
+                      input(type='checkbox')
+                      i
+                    span.m-l-5 Remember me
+                .form-group
+                  button.btn.btn-info.waves-effect(type='button') Submit
+        .col-md-6
+          #external-events.content-box.external-events
+            .head.success-bg.clearfix
+              h5.content-title.pull-left Drag Events to Calendar
+              .functions-btns.pull-right
+                a.refresh-btn(href='#')
+                  i.zmdi.zmdi-refresh
+                a.fullscreen-btn(href='#')
+                  i.zmdi.zmdi-fullscreen
+                a.close-btn(href='#')
+                  i.zmdi.zmdi-close
+            .content
+              .fc-event.primary-bg(data-bg='primary-bg')
+                | Sport Match
+                span.zmdi.zmdi-close.remove-event
+              .fc-event.success-bg(data-bg='success-bg')
+                | Meeting
+                span.zmdi.zmdi-close.remove-event
+              .fc-event.info-bg(data-bg='info-bg')
+                | Relax
+                span.zmdi.zmdi-close.remove-event
+              .fc-event.danger-bg(data-bg='danger-bg')
+                | Family Time
+                span.zmdi.zmdi-close.remove-event
+              .fc-event.warning-bg(data-bg='warning-bg')
+                | Coffee
+                span.zmdi.zmdi-close.remove-event
+
+script(src='/js/jquery.js')
+script(src='/js/bootstrap.min.js')
+script(src='/js/metisMenu.min.js')
+script(src='/js/jquery.mCustomScrollbar.js')
+script(src='/js/waves.min.js')
+script(src='/js/toastr.js')
+script(src='/js/moment.min.js')
+script(src='/js/fullcalendar.min.js')
+script(src='/js/jquery-ui.min.js')
+script(src='/js/common.js')
+script(src='/js/demo-switch.js')
+script.
+  $(function () {
+  $(".event-tag span").click(function () {
+  $(".event-tag span").removeClass("selected");
+  $(this).addClass("selected");
+  });
+  $(document).on('click', '.remove-event', function (e) {
+  $(this).parent().remove();
+  });
+  /* initialize the external events */
+  $('#external-events .fc-event').each(function () {
+  // store data so the calendar knows to render an event upon drop
+  $(this).data('eventObject', {
+  title: $.trim($(this).text()),
+  className: $(this).attr("data-bg"), // use the element's text as the event title
+  stick: true // maintain when user navigates (see docs on the renderEvent method)
+  });
+  // make the event draggable using jQuery UI
+  $(this).draggable({
+  zIndex: 999,
+  revert: true, // will cause the event to go back to its
+  revertDuration: 0 //  original position after the drag
+  });
+  });
+  /* initialize the calendar */
+  var date = new Date();
+  var d = date.getDate();
+  var m = date.getMonth();
+  var y = date.getFullYear();
+  $('#calendar').fullCalendar({
+  header: {
+  left: 'prev, title, next',
+  right: 'today, month,agendaWeek,agendaDay'
+  },
+  //Add Events
+  events: [
+  {
+  title: 'Sport Match',
+  start: new Date(y, m, 1),
+  end: new Date(y, m, 3),
+  className: 'primary-bg'
+  },
+  {
+  title: 'Meeting',
+  start: new Date(y, m, 10),
+  className: 'success-bg'
+  },
+  {
+  title: 'Coffee',
+  start: new Date(y, m, 13),
+  className: 'warning-bg'
+  },
+  {
+  title: 'Meeting',
+  start: new Date(y, m, 13),
+  className: 'success-bg'
+  },
+  {
+  title: 'Family Time',
+  start: new Date(y, m, 15),
+  className: 'danger-bg'
+  },
+  {
+  title: 'Relax',
+  start: new Date(y, m, 18),
+  className: 'info-bg'
+  },
+  ],
+  editable: true,
+  eventLimit: true,
+  droppable: true, // this allows things to be dropped onto the calendar
+  drop: function (date, allDay) { // this function is called when something is dropped
+  // retrieve the dropped element's stored Event Object
+  var originalEventObject = $(this).data('eventObject');
+  // we need to copy it, so that multiple events don't have a reference to the same object
+  var copiedEventObject = $.extend({}, originalEventObject);
+  // assign it the date that was reported
+  copiedEventObject.start = date;
+  copiedEventObject.allDay = allDay;
+  // render the event on the calendar
+  // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+  $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+  // is the "remove after drop" checkbox checked?
+  if ($('#drop-remove').is(':checked')) {
+  // if so, remove the element from the "Draggable Events" list
+  $(this).remove();
+  }
+  }
+  });
+  $( ".fc-day-number" ).wrapInner( "<span></span>");
+  $( ".fc-toolbar" ).after("<img src='http://www.mumslounge.com.au/wp-content/uploads/2016/07/August-2016.jpg' style='height:50px; width:100%;' class='img-responsive' alt='calendar'/>");
+  /*Add new event*/
+  // Form to add new event
+  //      $("#add_event_form").on('submit', function (ev) {
+  //        ev.preventDefault();
+  //
+  //        var $event = $(this).find('.new-event-form'),
+  //          event_name = $event.val(),
+  //          tagColor = $('.event-tag  span.selected').attr('data-tag');
+  //
+  //        if (event_name.length >= 3) {
+  //
+  //          var newid = "new" + "" + Math.random().toString(36).substring(7);
+  //          // Create Event Entry
+  //          $("#external-events .mdl-checkbox").before(
+  //            '<div id="' + newid + '" class="fc-event ' + tagColor + '" data-bg="' + tagColor + '">' + event_name + '<span class="zmdi zmdi-close remove-event"></span></div>'
+  //          );
+  //
+  //
+  //          var eventObject = {
+  //            title: $.trim($("#" + newid).text()),
+  //            className: $("#" + newid).attr("data-bg"), // use the element's text as the event title
+  //            stick: true
+  //          };
+  //
+  //          // store the Event Object in the DOM element so we can get to it later
+  //          $("#" + newid).data('eventObject', eventObject);
+  //
+  //          // Reset draggable
+  //          $("#" + newid).draggable({
+  //            revert: true,
+  //            revertDuration: 0,
+  //            zIndex: 999
+  //          });
+  //
+  //          // Reset input
+  //          $event.val('').focus();
+  //        } else {
+  //          $event.focus();
+  //        }
+  //      });
+  });
+script.
+  if($(window).width() >= 1200){
+  $("body").addClass("boxed-layout");
+  }
+  else{
+  $("body").removeClass("boxed-layout");
+  }
+  $(window).resize(function(){
+  if($(window).width() >= 1200){
+  $("body").addClass("boxed-layout");
+  }
+  else{
+  $("body").removeClass("boxed-layout");
+  }
+  });
+script.
+  if($(window).width() >= 1200){
+  $("body").addClass("fixed-sidebar");
+  }
+  else{
+  $("body").removeClass("fixed-sidebar");
+  }
+  $(window).resize(function(){
+  if($(window).width() >= 1200){
+  $("body").addClass("fixed-sidebar");
+  }
+  else{
+  $("body").removeClass("fixed-sidebar");
+  }
+  });
